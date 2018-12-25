@@ -1,0 +1,25 @@
+#########################################################
+#  file name   : problem1_script.txt                    #
+#  author      : Thomas Farmer                          #
+#  description : PennSim script file to automate        #
+#                assembling, loading, reset, and PC set #
+#########################################################
+
+# clear the PennSim screen
+clear
+
+# reset PennSim Simulator (clears all memory/regs)
+reset
+
+# Assembles problem1.asm, user_start.asm, factorial_sub.asm 
+# AND "links" them into one problem1.obj file
+as problem1 user_start factorial_sub problem1
+
+# load the linked problem1.obj into program memory
+ld problem1
+
+# set Program Counter to 0
+set PC 0
+
+# once the PC = this label, it will stop the LC4
+break set END

@@ -1,0 +1,26 @@
+#########################################################
+#  file name   : factorial_script.txt                   #
+#  author      : Thomas Farmer
+#  description : PennSim script file to automate        #
+#                assembling, loading, reset, and PC set #
+#########################################################
+
+# clear the PennSim screen
+clear
+
+# reset PennSim Simulator (clears all memory/regs)
+reset
+
+# assemble factorial_sub.asm file into factorial_sub.obj file
+as factorial_sub factorial_sub
+
+# load factorial_sub.obj into program memory
+ld factorial_sub
+
+# set Program Counter register to 0, 
+# enabling us to fetch instruction at line 0 in program memory
+set PC 0
+
+# once the PC = this label, it will stop the LC4
+break set END
+

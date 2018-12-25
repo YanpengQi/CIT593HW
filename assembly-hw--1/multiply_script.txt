@@ -1,0 +1,26 @@
+#########################################################
+#  file name   : multiply_script.txt                    #
+#  author      : Thomas Farmer
+#  description : PennSim script file to automate        #
+#                assembling, loading, reset, and PC set #
+#########################################################
+
+# clear the PennSim screen
+clear
+
+# reset PennSim Simulator (clears all memory/regs)
+reset
+
+# assemble multiply.asm file into factorial.obj file
+as multiply multiply
+
+# load multiply.obj into program memory
+ld multiply
+
+# set Program Counter register to 0, 
+# enabling us to fetch instruction at line 0 in program memory
+set PC 0
+
+# once the PC = this label, it will stop the LC4
+break set END
+

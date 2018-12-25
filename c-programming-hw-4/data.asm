@@ -1,0 +1,4 @@
+.DATA
+.ADDR x4000
+.FILL #10
+.FILL #1
